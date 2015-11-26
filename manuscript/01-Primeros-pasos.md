@@ -1,4 +1,4 @@
-# El Lenguaje
+# Primeros Pasos
 
 ## javaScript vs ECMAScript
 
@@ -18,5 +18,41 @@ Los comentarios multilínea se definen encerrando el texto del comentario entre 
 * _Se distinguen las mayúsculas y minúsculas:_ al igual que sucede con la sintaxis de las etiquetas y elementos XHTML. Sin embargo, si en una página XHTML se utilizan indistintamente mayúsculas y minúsculas, la página se visualiza correctamente, siendo el único problema la no validación de la página. En cambio, si en JavaScript se intercambian mayúsculas y minúsculas el script no funciona.
 
 * _No es necesario terminar cada sentencia con el carácter de punto y coma (;):_ en la mayoría de lenguajes de programación, es obligatorio terminar cada sentencia con el carácter ;. Aunque JavaScript no obliga a hacerlo, es conveniente seguir la tradición de terminar cada sentencia con el carácter del punto y coma (;).
+
+### Declaraciones
+
+Hay tres tipos de declaraciones en JavaScript.
+
+* **var**
+
+    Declara una variable, inizializa opcionalmente un valor.
+
+* **let**
+
+   Declara una variable local en un bloque de ámbito(scope), inicializa opcionalmente un valor. (nuevo en ECMAScript 6)
+
+* **const**
+
+    Declaración de una constante de solo lectura. No provocará un error si se intenta modificar su valor pero no tendrá ningún efecto intentar cambiarlo (nuevo en ECMAScript 6)
+
+Las variables se usan como nombres simbólicos para valores en tu aplicación. Los nombres de las variables, llamados identificadores, se rigen por ciertas reglas.
+
+Un identificador en JavaScript tiene que empezar con una letra, un guión bajo (\_) o un símbolo de dólar ($); los valores subsiguientes puede ser números. Debido a que JavaScript diferencia entre mayúsculas y minúsculas, las letras incluyen tanto desde la "A" hasta la "Z"(mayúsculas) como de la "a" hasta la "z".
+
+Puedes usar la ISO 8859-1 o letras Unicode tales como å y ü en un identificador. Puedes también usar el Unicode escape sequences como caracteres en identificadores.
+
+
+### Ámbitos de las variable
+
+Son llamadas una variable global si están declaradas fuera de una función, podrá ser utilizada en cualquier parte del documento actual. Son llamadas variables locales si están declaradas dentro de una función, porque estará disponible solo dentro de esa función.
+
+Antes de ECMAScript 6 Javascript no tenía ámbito en los bloques de sentencias. Una variable declarada dentro de un bloque era local para la función (o ámbito global) que el bloque reside dentro. Por ejemplo, el siguiente código registrará 5, porque el ámbito de x es la función(o contexto global) dentro de la cual se declara x, no el bloque, que en este caso es la sentencia if.
+
+~~~
+if (true) {
+  var a = 5;
+}
+console.log(a); // 5
+~~~
 
 https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Grammar_and_types
