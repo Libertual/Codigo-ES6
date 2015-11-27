@@ -44,15 +44,36 @@ Puedes usar la ISO 8859-1 o letras Unicode tales como å y ü en un identificado
 
 ### Ámbitos de las variable
 
-Son llamadas una variable global si están declaradas fuera de una función, podrá ser utilizada en cualquier parte del documento actual. Son llamadas variables locales si están declaradas dentro de una función, porque estará disponible solo dentro de esa función.
+Son llamadas _variables globales_ si están declaradas fuera de una función, podrá ser utilizada en cualquier parte del documento actual. Son llamadas _variables locales_ si están declaradas dentro de una función, porque estará disponible solo dentro de esa función.
 
 Antes de ECMAScript 6 Javascript no tenía ámbito en los bloques de sentencias. Una variable declarada dentro de un bloque era local para la función (o ámbito global) que el bloque reside dentro. Por ejemplo, el siguiente código registrará 5, porque el ámbito de x es la función(o contexto global) dentro de la cual se declara x, no el bloque, que en este caso es la sentencia if.
 
 ~~~
+// variable global
 if (true) {
   var a = 5;
 }
 console.log(a); // 5
+
+// variable local
+
+if (true) {
+  let a = 5;
+}
+console.log(a); // undefined
 ~~~
+
+
+## Tipos
+
+No es necesario declarar los tipos, JavaScript los reconoce automáticamente. Hay varios tipos reconocidos: Números, Cadenas alfanuméricas (strings), booleanos (true or false), null, undefined, todos los demás son objetos (Objects).
+Los arrays son objetos, las funciones son objetos, las expresiones regulares son objetos y, por supuesto, los objetos son objetos.
+
+## objetos
+
+Un objeto es un conjunto de propiedades, donde cada propiedad tiene un valor,  
+
+
+
 
 https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Grammar_and_types
