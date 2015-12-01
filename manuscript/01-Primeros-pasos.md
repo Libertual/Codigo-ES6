@@ -69,9 +69,74 @@ console.log(a); // undefined
 No es necesario declarar los tipos, JavaScript los reconoce automáticamente. Hay varios tipos reconocidos: Números, Cadenas alfanuméricas (strings), booleanos (true or false), null, undefined, todos los demás son objetos (Objects).
 Los arrays son objetos, las funciones son objetos, las expresiones regulares son objetos y, por supuesto, los objetos son objetos.
 
-## objetos
+## Objetos
 
-Un objeto es un conjunto de propiedades, donde cada propiedad tiene un valor,  
+Un objeto es un conjunto de propiedades, donde cada propiedad tiene un valor. La forma de programar conJavaScript orientado a objetos esta basado en prototipos hasta esta última version (ECMAScript6) que ya permite en su sintaxis la creación de clases.
+
+### Prototipos.
+
+Los prototipos son objetos capaces de contener otros objetos, los cuales pueden ser de diferentes tipos: Variables (Cadenas de texto, números), arrays o incluso otros objetos o grupos de objetos.
+
+~~~
+function Persona(nombre, edad) {  
+  this.nombre = nombre;
+  this.edad   = edad;
+}
+Persona.prototype.saludo = function() {  
+  return 'Hola me llamo ' + this.nombre + ' y tengo ' + this.edad + ' años';
+}
+
+var Peter = new Persona('Peter', 17);  
+Peter.saludo(); // 'Hola me llamo Peter y tengo 17 años'  
+~~~
+
+
+### Clases.
+
+A partir de ECMAScript6 ya se pueden declarar clases en JavaScript, su sintaxis es muy parecida a otros lenguajes como Java o C++.
+
+~~~
+class Persona {  
+  // Constructor
+
+  constructor(nombre, edad) {
+    this.nombre = nombre;
+    this.edad   = edad;
+  }
+
+  // Métodos
+
+  saludo() {
+    return 'Hola me llamo ' + this.nombre + ' y tengo ' + this.edad + ' años';
+  }
+}
+
+var Peter = new Persona('Peter', 17);  
+Sergio.saludo();  
+~~~
+
+Se prodrá crear métodos estáticos utilizando la palabra reservada _static_. Los métodos estáticos son llamados sin instanciar su clase. Son habitualmente utilizados para crear funciones para una aplicación.
+
+### Herencia
+
+En JavaScript, al igual que en otros lenguajes, las clases se pueden extender y heredar así los métodos y las propiedades.
+
+~~~
+class Carpintero extends Persona {  
+  constructor(nombre, edad, cargo) {
+    super(nombre, edad);
+    this.cargo = cargo;
+  }
+
+  saludo() {
+    return super.saludo() + ' y soy carpintero ' + this.cargo;
+  }
+}
+
+var Peter = new Carpintero('Peter', 17, 'Ebanista');  
+Peter.saludo(); // 'Hola me llamo Peter y tengo 17 años y soy carpintero ebanista'
+~~~
+
 
 
 
